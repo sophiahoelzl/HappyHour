@@ -48,7 +48,7 @@ fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
     })
     .then(cocktails => {
         for (let cocktail of Array.from(cocktails.drinks)) {
-            model.addCocktail(cocktail);
+            model.addCocktail(Object.assign(new Cocktail, cocktail));
         }
     })
     .catch(err => console.error(`Fetch problem: ${err.message}`));
