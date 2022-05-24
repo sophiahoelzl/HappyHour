@@ -1,0 +1,98 @@
+
+
+main{
+    margin-left: 30px;
+}
+#regis{
+    margin-top: 140px;
+    width: 90%;
+}
+
+.startpic{
+    width: 285px;
+    height: 285px;
+}
+
+.sidebar{
+    padding-left: 60px;
+    background-color: lightgrey;
+}
+
+.text{
+    padding-top: 85px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.übertext{
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Grape Nuts', cursive;
+    justify-content: center;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+
+body{
+    padding-top: 70px;
+}
+
+.divsBars{
+    height: 350px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: white;
+}
+
+.h2Article{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.imgArticle{
+    width: 280px;
+    height: 220px;
+}
+
+
+.rowClass{
+    margin-top: 50px;
+}
+
+.bodyBars{
+    background-color: #e7e7e7;
+}
+
+.barsleft{
+    margin-left: 30px;
+}
+
+.barsleft2{
+    margin-left: 70px;
+}
+
+.divsCocktails{
+    height: 350px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: white;
+    width: 405px;
+}
+
+.imgCocktails{
+    width: 220px;
+    height: 220px;
+    margin-bottom: 20px;
+}
+
+.h2Cocktails{
+    margin-top: 20px;
+}
