@@ -2,6 +2,7 @@ const express = require('express');
 
 const barsRouter = require('./api/routes/bar-router');
 const cocktailRouter = require('./api/routes/cocktail-router');
+const userRouter = require('./api/routes/user-router');
 
 const app = express();
 const port = process.env.PORT ?? 5500;
@@ -9,6 +10,7 @@ const port = process.env.PORT ?? 5500;
 ///////////////////////////////////
 const path = require('path');
 const bodyParser = require('body-parser');
+
 // Serving static files from folder 'files'
 app.use(express.static(path.join(__dirname, 'files')));
 app.use(express.static(path.join(__dirname, 'files/html-files')));
@@ -20,6 +22,7 @@ app.use(bodyParser.json());
 
 app.use('/api', barsRouter);
 app.use('/api', cocktailRouter);
+app.use('/api', userRouter);
 
 app.listen(port, (error) => {
     if (error) {

@@ -12,19 +12,27 @@
 </head>
 <body>
     <div class="top">
-        <nav class="navbar justify-content-between sticky fixed-top">
-            <a class="navbar-brand linknav">Happy Hour</a>
-            <a href="bars.html">
-                    <button class="btn btn-secondary my-2 my-sm-0">Login</button>
-            </a>
+        <nav class="navbar sticky fixed-top">
+                <div class="col-9">
+                    <a class="navbar-brand linknav">Happy Hour</a>
+                </div>
+                <div class = "col text-right">
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="col text-right">
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-secondary my-2 my-sm-0" onclick="checklogin()">Login</button>
+                </div>
           </nav>
         <div class="row g-0 test">
             <div class="col-12 text-center">
                 <h1 id="headingStart">Welcome to Happy Hour!</h1>
                 <p id="textStart">Your night-life adventure companion</p>
-                
+                <form action="/registration.html"> 
                     <button id="buttonStart" class="btn btn-secondary">Register now!</button>
-               
+               </form>
             </div>
         </div>
     </div>
@@ -186,4 +194,18 @@
         </footer>
     </div>
 </body>
+<script>
+    function checklogin(){
+        var username = document.getElementById("email").value;
+        var password1 = document.getElementById("password").value;
+        
+        if (username == "test@test" && password1 == "1234"){
+            sessionStorage.setItem("username", username);
+            //sessionStorage.setItem("sessionId", sessionId);
+            location.href = "/index.html";
+        } else {
+            alert("Daten stimmen nicht!");
+        }
+    }
+</script>
 </html>

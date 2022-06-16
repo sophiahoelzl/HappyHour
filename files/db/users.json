@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "firstName": "t",
+      "lastName": "t",
+      "email": "test@test",
+      "password": "t"
+    },
+    {
+      "firstName": "Max",
+      "lastName": "Mustermann",
+      "email": "max.mustermann@test.at",
+      "password": "1"
+    },
+    {
+      "firstName": "Maxine",
+      "lastName": "Musterfrau",
+      "email": "maxine.musterfrau@test.at",
+      "password": "1234"
+    },
+    {
+      "firstName": "Test1",
+      "lastName": "Test1",
+      "email": "test@test",
+      "password": "1"
+    }
+  ]
+}
