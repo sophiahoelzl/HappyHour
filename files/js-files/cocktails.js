@@ -1,46 +1,32 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+    document.getElementsByTagName("link")[0].import;
     fetch('/api/cocktails')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(cocktails => {
             let cnt = 0;
+
+            let container = document.createElement('div');
+            document.querySelector('main').append(container);
+            container.className = "container";
+
+
+            let rowdiv = document.createElement('div');
+            container.append(rowdiv);
+            rowdiv.className = "row rowClass";
+
             for (let cocktail of Array.from(cocktails)) {
-            /*    <div class="row">
-            <div class="col-sm">
-                <!-- Top 10 Rezepte über API laden -->
-                <h2>Mojito</h2>
-                <img src="images/mojito.png" alt="Mojito Bild"><br>
-                <a href="cocktail-details.html">Recipe</a><br>
-                <input type="button" value="Like!"></input>
-            </div>
-        </div>*/
                 let div = document.createElement('div');
-                if (cnt == 0 || cnt % 4 == 0){
-                    document.querySelector('main').append(div);
-                }
-                div.className = 'row rowClass';
-
-                let divs = document.getElementsByClassName("rowClass");
+                rowdiv.append(div);
+                div.className = "col";
+                
                 let div2 = document.createElement('div');
-
-                if (cnt < 4){
-                    divs[0].append(div2);
-                } else if (cnt < 8){
-                    divs[1].append(div2);
-                } else if (cnt < 12){
-                    divs[2].append(div2);
-                } else if (cnt < 16){
-                    divs[3].append(div2);
-                } else if (cnt < 20){
-                    divs[4].append(div2);
-                } else if (cnt < 24){
-                    divs[5].append(div2);
-                } else if (cnt < 28){
-                    divs[6].append(div2);
-                } else {
-                    divs[0].append(div2);
-                }
-                //div.append(div2);
-                div2.className = 'col text-center';
+                div.append(div2);
+                div2.className = 'text-center';
 
                 let article = document.createElement("article");
                 div2.append(article);
@@ -48,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let h2 = document.createElement('h2');
                 article.append(h2);
-                h2.innerHTML = cocktail[1].strDrink;
+                h2.innerHTML = cocktail.strDrink;
                 h2.className = "h2Cocktails";
-                
+
                 let div3 = document.createElement("div");
-                div3.className="row";
+                div3.className = "row";
                 article.append(div3);
 
                 let div4 = document.createElement("div");
@@ -61,11 +47,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let img = document.createElement('img');
                 div4.append(img)
-                img.src = cocktail[1].strDrinkThumb;
+                img.src = cocktail.strDrinkThumb;
                 img.alt = 'alt';
-                img.width = '200';
-                img.height = '200';
-                img.className = "imgCocktails";
+                img.className = "img-responsive imgCocktails";
 
                 let div5 = document.createElement("div");
                 div5.className = "row";
@@ -88,8 +72,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 input.type = 'button';
                 input.value = 'Like!';
 
+                input.onclick = () => {
+                    console.log(cocktail.idDrink);
+                };
+
                 //document.querySelector('main').appendChild(div);
-                cnt = cnt +1;
+                cnt = cnt + 1;
             }
-        });
+        }).catch(err => console.error(`Fetch problem: ${err.message}`));;
 });

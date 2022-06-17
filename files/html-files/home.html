@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Happy Hour</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Hour</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link rel="stylesheet" href="css-files/home.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
-    </head>
-    <body style="padding: 66px 0px 0px 0px">
+    <link rel="stylesheet" href="css-files/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+</head>
+
+<body style="padding: 66px 0px 0px 0px">
+    <nav>
         <div class="container">
             <div class="row">
                 <div class="col-sm">
@@ -29,10 +32,12 @@
                                         <form>
                                             <div class="row g-0">
                                                 <div class="col">
-                                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                                    <input type="text" class="form-control" id="username"
+                                                        name="username" placeholder="Username">
                                                 </div>
                                                 <div class="col">
-                                                    <input type="password" class="form-control" id="passw" name="passw" placeholder="Password">
+                                                    <input type="password" class="form-control" id="passw" name="passw"
+                                                        placeholder="Password">
                                                 </div>
                                             </div>
                                         </form>
@@ -49,67 +54,75 @@
                 </div>
             </div>
         </div>
-        <main class="overflow scroll">
-            <div class="row g-0">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="images/New year toast-rafiki.png" alt="Meeting up with friends pic" class="startpic">
-                        </div>
-                        <div class="col-9 text">
-                            <h3 class="übertext">Meet up with your Friends!</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
-                        </div>
+    </nav>
+    <main class="overflow scroll">
+        <div class="row g-0">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="images/New year toast-rafiki.png" alt="Meeting up with friends pic" class="startpic">
                     </div>
-                    <div class="row">
-                        <div class="col-9 text">
-                            <h3 class="übertext">Find new Cocktailrecipes</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
-                        </div>
-                        <div class="col-3">
-                            <img src="images/Refreshing-rafiki (1).png" alt="Meeting up with friends pic" class="startpic">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="images/Beer Celebration-pana.png" alt="Meeting up with friends pic" class="startpic">
-                        </div>
-                        <div class="col-9 text">
-                            <h3 class="übertext">Find Bars in your near Location</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
-                        </div>
+                    <div class="col-9 text">
+                        <h3 class="uebertext">Meet up with your Friends!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae
+                            congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
                     </div>
                 </div>
-                <div class="col-4 sidebar">
-                    <div id="regis">
-                        <h2>Registrieren</h2>
-                        <form class="need-validation" action="" method="POST">
-                            <div class="form-group">
-                                <label for="firstName">Vorname</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName">
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Nachname</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="password1">Passwort</label>
-                                <input type="password" class="form-control" id="password1" name="password1">
-                            </div>
-                            <div class="form-group">
-                                <label for="password2">Passwort wiederholen</label>
-                                <input type="password" class="form-control" id="password2" name="password2">
-                            </div>
-                            <button type="submit" name="new_user" class="btn btn-primary">Registrieren</button>
-                            <button type="reset" name="reset" class="btn btn-secondary">Abbrechen</button>
-                        </form>
+                <div class="row">
+                    <div class="col-9 text">
+                        <h3 class="uebertext">Find new Cocktailrecipes</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae
+                            congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
+                    </div>
+                    <div class="col-3">
+                        <img src="images/Refreshing-rafiki (1).png" alt="Meeting up with friends pic" class="startpic">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="images/Beer Celebration-pana.png" alt="Meeting up with friends pic" class="startpic">
+                    </div>
+                    <div class="col-9 text">
+                        <h3 class="uebertext">Find Bars in your near Location</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae
+                            congue. Ac turpis egestas maecenas pharetra convallis posuere.</p>
                     </div>
                 </div>
             </div>
-        </main>
-    </body>
+            <div class="col-4 sidebar">
+                <div id="regis">
+                    <h2>Registrieren</h2>
+                    <form class="need-validation" action="" method="POST">
+                        <div class="form-group">
+                            <label for="firstName">Vorname</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nachname</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Passwort</label>
+                            <input type="password" class="form-control" id="password1" name="password1">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Passwort wiederholen</label>
+                            <input type="password" class="form-control" id="password2" name="password2">
+                        </div>
+                        <button type="submit" name="new_user" class="btn btn-primary">Registrieren</button>
+                        <button type="reset" name="reset" class="btn btn-secondary">Abbrechen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
 </html>

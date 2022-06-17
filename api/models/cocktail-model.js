@@ -14,43 +14,55 @@ class Cocktail {
         strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15,
         strImageSource, strImageAttribution, strCreativeCommonsConfirmed,
         dateModified) {
-        //this.id = idDrink;
+        this.idDrink = idDrink;
         this.strDrink = strDrink;
         this.strDrinkThumb = strDrinkThumb;
+        this.strCategory = strCategory;
     }
 }
 
 class CocktailModel {
-    static COCKTAIL_ID = 0;
+    //static COCKTAIL_ID = 0;
 
     constructor() {
-        this.cocktails = new Map();
+        this.cocktails = [];
     }
 
-    addCocktail(cocktail) {
+    /*addCocktail(cocktail) {
         cocktail.id = CocktailModel.COCKTAIL_ID++;
         this.cocktails.set(cocktail.id, cocktail);
+    }*/
+
+    async loadCocktails() {
+        try {
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (err) {
+            console.log(`Fetch problem: ${err.message}`);
+        }
     }
 
-    getCocktails() {
-        return Array.from(this.cocktails);
+    async getCocktails() {
+        try {
+            await this.loadCocktails().then(cocktails_json => {
+                this.cocktails = [];
+                for (const c of Array.from(cocktails_json.drinks)) {
+                    this.cocktails.push(Object.assign(new Cocktail, c));
+                };
+            });
+
+            return this.cocktails;
+        } catch (err) {
+            console.log(error);
+        }
     }
 }
 
 const model = new CocktailModel();
-
-fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(cocktails => {
-        for (let cocktail of Array.from(cocktails.drinks)) {
-            model.addCocktail(Object.assign(new Cocktail, cocktail));
-        }
-    })
-    .catch(err => console.error(`Fetch problem: ${err.message}`));
 
 module.exports = model;

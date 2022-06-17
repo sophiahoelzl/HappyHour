@@ -1,8 +1,8 @@
 const model = require("../models/cocktail-model");
 
 class CocktailController {
-    getCocktails = (req, res) => {
-        res.send(model.getCocktails());
+    getCocktails = async (req, res) => {
+        res.send(await model.getCocktails());
     }
 }
 
