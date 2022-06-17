@@ -37,6 +37,8 @@
 
         <script>
              document.addEventListener("submit", function (event) {
+                event.preventDefault();
+
                 var username = document.getElementById("email").value;
                 var firstname = document.getElementById("firstName").value;
                 var lastname = document.getElementById("lastName").value;
@@ -44,7 +46,6 @@
                 var password2 = document.getElementById("password2").value;
 
                 if (password1 == password2 && password1 != "" && password2 != ""){
-                        event.preventDefault();
                         fetch ("/api/user", {
                             method: "post",
                             headers: {
@@ -59,12 +60,6 @@
                             })
                             
                         })  
-                        .then(function(response){
-                            return response.json()
-                        })
-                        .then(function(data){
-                            console.log(data)
-                        })
                         .catch(error => console.error("Error:", error));
                     
                         sessionStorage.setItem("username", username);

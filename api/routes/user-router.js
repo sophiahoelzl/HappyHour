@@ -5,4 +5,6 @@ const routes = Router();
 
 routes.post('/user', controller.registerUser);
 
+routes.get('/users', controller.getUser);
+
 module.exports = routes;
