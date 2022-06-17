@@ -12,19 +12,29 @@
 </head>
 <body>
     <div class="top">
-        <nav class="navbar justify-content-between sticky fixed-top">
-            <a class="navbar-brand linknav">Happy Hour</a>
-            <a href="bars.html">
-                    <button class="btn btn-secondary my-2 my-sm-0">Login</button>
-            </a>
+        <nav class="navbar sticky fixed-top">
+                <div class="col-7">
+                    <a class="navbar-brand linknav">Happy Hour</a>
+                </div>
+                <form name="login">
+                        <div class = "col">
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="col">
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="col-1">
+                            <button  type="submit" class="btn btn-secondary my-2 my-sm-0">Login</button>
+                        </div>
+                </form>
           </nav>
         <div class="row g-0 test">
             <div class="col-12 text-center">
                 <h1 id="headingStart">Welcome to Happy Hour!</h1>
                 <p id="textStart">Your night-life adventure companion</p>
-                
+                <form action="/registration.html"> 
                     <button id="buttonStart" class="btn btn-secondary">Register now!</button>
-               
+               </form>
             </div>
         </div>
     </div>
@@ -186,4 +196,32 @@
         </footer>
     </div>
 </body>
+<script>
+    login.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var username = document.getElementById("email").value;
+        var password1 = document.getElementById("password").value;
+        fetch ("/api/users")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(users => {
+                for (var arrays of users){
+                    if (arrays[1].email == username){
+                        if (arrays[1].password == password1){
+                            sessionStorage.setItem("username", username);
+                            //sessionStorage.setItem("sessionId", sessionId);
+                            location.href = "index.html";
+                        }
+                    }
+                }
+                alert("Es existiert kein Benutzer mit dem Namen");
+            })
+            .catch(err => console.error(`Fetch problem: ${err.message}`));
+    })
+</script>
 </html>

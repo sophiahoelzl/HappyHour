@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form name="registration">
+            <div class="form-group">
+                <label for="firstName">Vorname</label>
+                <input type="text" class="form-control" id="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Nachname</label>
+                <input type="text" class="form-control" id="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="password1">Passwort</label>
+                <input type="password" class="form-control" id="password1">
+            </div>
+            <div class="form-group">
+                <label for="password2">Passwort wiederholen</label>
+                <input type="password" class="form-control" id="password2">
+            </div>
+            <button type="submit"   class="btn submit btn-custom">Registrieren</button>
+            <button type="reset" name="reset" class = "btn btn-secondary">Abbrechen</button>
+        </form>
+
+        <script>
+             document.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                var username = document.getElementById("email").value;
+                var firstname = document.getElementById("firstName").value;
+                var lastname = document.getElementById("lastName").value;
+                var password1 = document.getElementById("password1").value;
+                var password2 = document.getElementById("password2").value;
+
+                if (password1 == password2 && password1 != "" && password2 != ""){
+                        fetch ("/api/user", {
+                            method: "post",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body:  JSON.stringify({
+                                firstName: firstname,
+                                lastName: lastname,
+                                email: username,
+                                password: password1,
+                                
+                            })
+                            
+                        })  
+                        .catch(error => console.error("Error:", error));
+                    
+                        sessionStorage.setItem("username", username);
+                        alert("Du wurdest erfolgreich registiert"); //ohne alert speicherts es nicht in die db wenn direkt danach der redirect kommt (ich weiß noch nicht wieso deswegen ist jetzt mal der alter drinnen!)
+                        location.href = "index.html";
+                } else {
+                    alert("Die Passwörter müssen übereinstimmen");
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
